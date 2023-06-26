@@ -1,16 +1,52 @@
+import { NavItem } from "../types/nav"
+
 export type SiteConfig = typeof siteConfig
 
-export const siteConfig = {
-  name: "Hycord",
-  description:
-    "Portfolio website coming soon.",
+export const siteConfig: {
+  name: string
+  description: string
+  mainNav: NavItem[]
+  mobileNav: NavItem[]
+  socials: {
+    twitter?: string
+    github?: string
+    discord?: string
+    email?: string
+  }
+  info: {
+    title: string
+    description: string
+    image: string
+  }
+} = {
+  info: {
+    title: "Masen Toplak",
+    description: "Full-Stack Software Engineer",
+    image: "https://hycord.com/images/logo.png",
+  },
+  name: "Hycord's Portfolio",
+  description: "Portfolio website coming soon.",
   mainNav: [
     {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Projects",
+      href: "/projects",
+    },
   ],
-  links: {
+  mobileNav: [
+    {
+      title: "Home",
+      href: "/",
+    },
+    {
+      title: "Projects",
+      href: "/projects",
+    },
+  ],
+  socials: {
     twitter: "https://twitter.com/ignhycord",
     github: "https://github.com/hycord",
   },
