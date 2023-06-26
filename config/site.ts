@@ -1,12 +1,21 @@
-import { NavItem } from "../types/nav"
 
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig: {
   name: string
   description: string
-  mainNav: NavItem[]
-  mobileNav: NavItem[]
+  mainNav: {
+    title: string
+    href: string
+    disabled?: boolean
+    external?: boolean
+  }[]
+  mobileNav: {
+    title: string
+    href: string
+    disabled?: boolean
+    external?: boolean
+  }[]
   socials: {
     twitter?: string
     github?: string

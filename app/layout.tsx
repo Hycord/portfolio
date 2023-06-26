@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -22,6 +23,15 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: {
+      url: "/favicon.ico",
+    },
   },
 }
 
@@ -43,7 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex flex-col min-h-screen">
               <SiteHeader />
-              <div className="flex grow">{children}</div>
+              <div className="flex grow overflow-scroll">{children}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

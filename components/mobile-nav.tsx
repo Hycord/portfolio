@@ -5,13 +5,11 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
 
-import { buttonVariants } from "./ui/button"
-import { ScrollArea } from "./ui/scroll-area"
-import { Separator } from "./ui/separator"
+import { buttonVariants } from "@/components/ui/button"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
 
 interface MobileNavProps {
   items?: NavItem[]
@@ -23,7 +21,7 @@ export function MobileNav({ items }: MobileNavProps) {
   return (
     <div className="flex gap-6 grow">
       {items?.length ? (
-        <ScrollArea className="w-full h-[50%]">
+        <ScrollArea className="w-full">
           <nav className="flex flex-col gap-2">
             {items?.map(
               (item, index) =>
