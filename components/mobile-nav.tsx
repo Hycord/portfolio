@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -19,7 +18,7 @@ export function MobileNav({ items }: MobileNavProps) {
   const pathName = usePathname()
 
   return (
-    <div className="flex gap-6 grow">
+    <div className="flex grow gap-6">
       {items?.length ? (
         <ScrollArea className="w-full">
           <nav className="flex flex-col gap-2">

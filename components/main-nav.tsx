@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -17,9 +16,36 @@ interface MainNavProps {
 }
 
 export function MainNav({ items }: MainNavProps) {
+  // return (
+  //   <div className="flex gap-6 md:gap-10">
+  //     <Link href="/" className="flex items-center space-x-2">
+  //       <Icons.logo className="h-6 w-6" />
+  //       <span className="inline-block font-bold">{siteConfig.name}</span>
+  //     </Link>
+  //     {items?.length ? (
+  //       <nav className="flex gap-6">
+  //         {items?.map(
+  //           (item, index) =>
+  //             item.href && (
+  //               <Link
+  //                 key={index}
+  //                 href={item.href}
+  //                 className={cn(
+  //                   "flex items-center text-sm font-medium text-muted-foreground",
+  //                   item.disabled && "cursor-not-allowed opacity-80"
+  //                 )}
+  //               >
+  //                 {item.title}
+  //               </Link>
+  //             )
+  //         )}
+  //       </nav>
+  //     ) : null}
+  //   </div>
+  // )
   const pathName = usePathname()
   return (
-    <div className="md:flex pl-8 w-full hidden">
+    <div className="hidden w-full pl-8 md:flex">
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
           {items?.map(
@@ -29,7 +55,7 @@ export function MainNav({ items }: MainNavProps) {
                   key={index}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-lg font-medium text-primary/50 hover:text-primary/75 hover:scale-110 transition-all ",
+                    "flex items-center text-lg font-medium text-primary/50 transition-all hover:scale-110 hover:text-primary/75 ",
                     item.disabled && "cursor-not-allowed opacity-80",
                     pathName == item.href && "text-primary/75"
                   )}
@@ -40,8 +66,8 @@ export function MainNav({ items }: MainNavProps) {
           )}
         </nav>
       ) : null}
-      <div className="flex items-center justify-end flex-1 space-x-4">
-        <nav className="items-center hidden space-x-1 md:flex">
+      <div className="flex flex-1 items-center justify-end space-x-4">
+        <nav className="hidden items-center space-x-1 md:flex">
           {siteConfig.socials.github && (
             <Link
               href={siteConfig.socials.github}
@@ -54,7 +80,7 @@ export function MainNav({ items }: MainNavProps) {
                   variant: "ghost",
                 })}
               >
-                <Icons.gitHub className="w-5 h-5" />
+                <Icons.gitHub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -71,7 +97,7 @@ export function MainNav({ items }: MainNavProps) {
                   variant: "ghost",
                 })}
               >
-                <Icons.twitter className="w-5 h-5 fill-current" />
+                <Icons.twitter className="h-5 w-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>

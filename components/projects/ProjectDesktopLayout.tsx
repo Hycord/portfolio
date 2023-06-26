@@ -2,10 +2,10 @@ import { cn } from "../../lib/utils";
 import { Separator } from "../ui/separator";
 import { ProjectInfoCard } from "./ProjectInfoCard";
 
-export function ProjectDesktopLayout() {
+function ProjectDesktopLayout() {
   return (
     <section className="hidden grow flex-row items-center md:flex">
-      <div className={cn("grow bg-accent  transition-all duration-1000 text-accent-foreground p-4 flex items-center justify-center", "h-full")}>
+      <div className={cn("flex grow  items-center justify-center bg-accent p-4 text-accent-foreground", "h-full")}>
         <ProjectInfoCard />
       </div>
       <Separator orientation="vertical" />
@@ -14,4 +14,8 @@ export function ProjectDesktopLayout() {
       </div>
     </section>
   )
+}
+
+export {
+    ProjectDesktopLayout
 }

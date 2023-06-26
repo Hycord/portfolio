@@ -1,7 +1,7 @@
-import { ProjectDesktopLayout } from "@/components/projects/ProjectDesktopLayout"
-import { ProjectMobileLayout } from "@/components/projects/ProjectMobileLayout"
+import { ProjectDesktopLayout } from "../../components/projects/ProjectDesktopLayout"
+import { ProjectMobileLayout } from "../../components/projects/ProjectMobileLayout"
 
-function Page() {
+export default function Page() {
   return (
     <>
       <ProjectMobileLayout />
@@ -9,5 +9,3 @@ function Page() {
     </>
   )
 }
-
-export default Page;

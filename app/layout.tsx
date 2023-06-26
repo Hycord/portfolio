@@ -1,4 +1,4 @@
-import "@/styles/globals.css"
+import "@/app/globals.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-
 
 export const metadata: Metadata = {
   title: {
@@ -24,6 +23,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
+  metadataBase: new URL("https://hycord.is-a.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -51,9 +51,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex flex-col min-h-screen">
+            <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex grow overflow-scroll">{children}</div>
+              <div className="flex flex-row grow">{children}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

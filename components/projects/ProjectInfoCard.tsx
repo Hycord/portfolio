@@ -1,4 +1,4 @@
-import { Link } from "lucide-react"
+import { Github, Link, Twitter } from "lucide-react"
 
 import { siteConfig } from "../../config/site"
 import { Icons } from "../icons"
@@ -12,20 +12,28 @@ export function ProjectInfoCard() {
       <div className="flex w-full items-center justify-around">
         <span className="flex gap-2">
           {siteConfig.socials.github && (
-            <Link href={siteConfig.socials.github} target="_blank">
+            <a
+              href={siteConfig.socials.github}
+              rel="noreferrer"
+              target="_blank"
+            >
               <div className={buttonVariants()}>
-                <Icons.gitHub className="h-5 w-5" />
+                <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
-            </Link>
+            </a>
           )}
           {siteConfig.socials.twitter && (
-            <Link href={siteConfig.socials.twitter} target="_blank">
+            <a
+              href={siteConfig.socials.twitter}
+              rel="noreferrer"
+              target="_blank"
+            >
               <div className={buttonVariants({})}>
-                <Icons.twitter className="h-5 w-5 fill-current" />
+                <Twitter className="h-5 w-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
-            </Link>
+            </a>
           )}
         </span>
       </div>

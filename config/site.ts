@@ -25,13 +25,11 @@ export const siteConfig: {
   info: {
     title: string
     description: string
-    image: string
   }
 } = {
   info: {
     title: "Masen Toplak",
     description: "Full-Stack Software Engineer",
-    image: "https://hycord.com/images/logo.png",
   },
   name: "Hycord's Portfolio",
   description: "Portfolio website coming soon.",

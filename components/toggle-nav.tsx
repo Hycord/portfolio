@@ -33,13 +33,14 @@ export function ToggleNav() {
           })
         )}
       >
-        <MenuIcon />
+        {/* <MenuIcon /> */}
+        <Icons.navToggle />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <Link href="/" className="flex items-center space-x-2">
-            <Icons.logo className="w-6 h-6" />
-            <span className="inline-block font-bold whitespace-nowrap">
+            <Icons.logo className="h-6 w-6" />
+            <span className="inline-block whitespace-nowrap font-bold">
               {siteConfig.name}
             </span>
           </Link>
@@ -49,7 +50,7 @@ export function ToggleNav() {
         {/* </SheetDescription> */}
 
         <SheetFooter>
-          <nav className="items-center space-x-1 flex">
+          <nav className="flex items-center space-x-1">
             {siteConfig.socials.github && (
               <Link
                 href={siteConfig.socials.github}
@@ -62,7 +63,7 @@ export function ToggleNav() {
                     variant: "ghost",
                   })}
                 >
-                  <Icons.gitHub className="w-5 h-5" />
+                  <Icons.gitHub className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </div>
               </Link>
@@ -79,7 +80,7 @@ export function ToggleNav() {
                     variant: "ghost",
                   })}
                 >
-                  <Icons.twitter className="w-5 h-5 fill-current" />
+                  <Icons.twitter className="h-5 w-5 fill-current" />
                   <span className="sr-only">Twitter</span>
                 </div>
               </Link>
