@@ -1,11 +1,10 @@
-"use client";
+"use client"
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
-
 import { buttonVariants } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
@@ -27,7 +26,7 @@ export function MobileNav({ items }: MobileNavProps) {
                 item.href && (
                   <>
                     <Link
-                      key={index}
+                      key={"mobile_nav_button_" + index}
                       href={item.href}
                       className={cn(
                         buttonVariants({
@@ -37,7 +36,7 @@ export function MobileNav({ items }: MobileNavProps) {
                     >
                       {item.title}
                     </Link>
-                    {index % 2 === 0 && <Separator />}
+                    {index % 2 === 0 && <Separator key={"mobile_nav_separator_"+index}  />}
                   </>
                 )
             )}

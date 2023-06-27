@@ -17,7 +17,7 @@ export function SiteHeader() {
   //   </header>
   // )
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="sticky top-0 z-40 h-16  w-full border-b bg-background">
       <div className="container flex h-16 items-center justify-between space-x-4">
         <Link href="/" className="flex items-center space-x-2 transition-all hover:scale-110">
           {/* <Icons.logo className="h-6 w-6" /> */}

@@ -8,7 +8,7 @@ export function ProjectInfoCard() {
   return (
     <div className="flex flex-col items-center justify-center gap-2 whitespace-nowrap text-center">
       <h1 className="text-xl font-bold sm:text-3xl">{siteConfig.info.title}</h1>
-      <p className="text-md sm:text-lg">{siteConfig.info.description}</p>
+      <p className="text-md md:text-lg">{siteConfig.info.description}</p>
       <div className="flex w-full items-center justify-around">
         <span className="flex gap-2">
           {siteConfig.socials.github && (

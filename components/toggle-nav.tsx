@@ -39,7 +39,7 @@ export function ToggleNav() {
       <SheetContent>
         <SheetHeader>
           <Link href="/" className="flex items-center space-x-2">
-            <Icons.logo className="h-6 w-6" />
+            {/* <Icons.logo className="h-6 w-6" /> */}
             <span className="inline-block whitespace-nowrap font-bold">
               {siteConfig.name}
             </span>
@@ -50,7 +50,7 @@ export function ToggleNav() {
         {/* </SheetDescription> */}
 
         <SheetFooter>
-          <nav className="flex items-center space-x-1">
+          <nav className="flex items-center space-x-1 transition-none">
             {siteConfig.socials.github && (
               <Link
                 href={siteConfig.socials.github}

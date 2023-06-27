@@ -52,7 +52,7 @@ export function MainNav({ items }: MainNavProps) {
             (item, index) =>
               item.href && (
                 <Link
-                  key={index}
+                  key={"main_nav_"+index}
                   href={item.href}
                   className={cn(
                     "flex items-center text-lg font-medium text-primary/50 transition-all hover:scale-110 hover:text-primary/75 ",
