@@ -36,7 +36,9 @@ export function MobileNav({ items }: MobileNavProps) {
                     >
                       {item.title}
                     </Link>
-                    {index % 2 === 0 && <Separator key={"mobile_nav_separator_"+index}  />}
+                    {index % 2 === 0 && (
+                      <Separator key={"mobile_nav_separator_" + index} />
+                    )}
                   </>
                 )
             )}
