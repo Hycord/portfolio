@@ -1,5 +1,6 @@
-import "@/app/globals.css"
+import "./globals.css"
 import { Metadata } from "next"
+import Head from "next/head"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -43,7 +44,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content="#ffffff" />
+          <meta name="author" content="Hycord" />
+        </Head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -51,9 +56,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="flex min-h-screen flex-col">
+            <div className="flex max-h-screen min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex flex-row grow">{children}</div>
+              <div className="flex min-h-full w-full grow flex-row overflow-scroll">
+                {children}
+              </div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

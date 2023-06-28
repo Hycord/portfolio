@@ -18,7 +18,7 @@ export function ProjectInfoCard() {
               target="_blank"
             >
               <div className={buttonVariants()}>
-                <Github className="h-5 w-5" />
+                <Icons.gitHub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </a>
@@ -30,7 +30,7 @@ export function ProjectInfoCard() {
               target="_blank"
             >
               <div className={buttonVariants({})}>
-                <Twitter className="h-5 w-5 fill-current" />
+                <Icons.twitter className="h-5 w-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
             </a>
