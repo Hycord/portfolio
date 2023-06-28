@@ -31,7 +31,14 @@ function Page() {
         >
           Portfolio Repository
         </Link>
-      </span>
+      </span> 
+      <iframe
+        src="https://discord.com/widget?id=1034684270817591306&theme=dark"
+        width="300"
+        height="400"
+        allowTransparency={true}
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+      ></iframe>
     </section>
   )
 }

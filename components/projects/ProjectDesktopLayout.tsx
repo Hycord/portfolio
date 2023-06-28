@@ -7,26 +7,18 @@ import { ProjectInfoCard } from "./ProjectInfoCard"
 
 function ProjectDesktopLayout() {
   return (
-    <section className="hidden grow flex-row items-center md:flex">
-      <div
+    <section className="h-full w-full grow">
+      {/* <div
         className={cn(
           "flex grow  items-center justify-center bg-accent p-4 text-accent-foreground",
-          "h-full"
+          "min-h-full w-[33%]"
         )}
       >
         <ProjectInfoCard />
       </div>
-      <Separator orientation="vertical" />
-      <div className="grid max-h-screen w-[66%] grid-cols-2 gap-4 overflow-y-scroll px-4 lg:grid-cols-3 xl:grid-cols-4">
-        {[
-          ...allDocuments,
-          ...allDocuments,
-          ...allDocuments,
-          ...allDocuments,
-          ...allDocuments,
-          ...allDocuments,
-          ...allDocuments,
-        ].map((doc) => (
+      <Separator orientation="vertical" /> */}
+      <div className="grid max-h-full w-full grid-cols-2 gap-4 overflow-scroll p-4 lg:grid-cols-3 xl:grid-cols-4">
+        {allDocuments.map((doc) => (
           <ProjectShowcase key={doc.slugAsParams} doc={doc} />
         ))}
       </div>

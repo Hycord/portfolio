@@ -37,14 +37,12 @@ export function ToggleNav() {
         <Icons.navToggle />
       </SheetTrigger>
       <SheetContent>
-        <SheetHeader>
-          <Link href="/" className="flex items-center space-x-2">
-            {/* <Icons.logo className="h-6 w-6" /> */}
-            <span className="inline-block whitespace-nowrap font-bold">
-              {siteConfig.name}
-            </span>
-          </Link>
-        </SheetHeader>
+        <Link
+          href="/"
+          className="inline-block items-center space-x-2 whitespace-nowrap font-bold"
+        >
+          <SheetHeader>{siteConfig.name}</SheetHeader>
+        </Link>
         {/* <SheetDescription> */}
         <MobileNav items={siteConfig.mobileNav} />
         {/* </SheetDescription> */}

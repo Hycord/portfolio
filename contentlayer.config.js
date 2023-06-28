@@ -8,11 +8,11 @@ import remarkGfm from "remark-gfm"
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    resolve: (doc) => `/projects/info/${doc._raw.sourceFileName.replace(/\.mdx?$/, "")}`,
   },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(2).join("/"),
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx?$/, ""),
   },
 }
 
@@ -21,6 +21,11 @@ export const Project = defineDocumentType(() => ({
   filePathPattern: `projects/**/*.mdx`,
   contentType: "mdx",
   fields: {
+    public: {
+      type: "boolean",
+      required: false,
+      default: false,
+    },
     title: {
       type: "string",
       required: true,
