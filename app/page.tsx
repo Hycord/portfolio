@@ -5,11 +5,11 @@ import { cn } from "../lib/utils"
 
 function Page() {
   return (
-    <section className="container flex flex-col text-center items-center w-full h-full gap-6 pt-6 pb-8 md:px-10 grow">
+    <section className="container flex h-full w-full grow flex-col items-center gap-6 pb-8 pt-6 text-center md:px-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2 text-3xl font-semibold capitalize">
         There will be more content here soon!
       </div>
-      <span className="flex flex-col justify-center sm:flex-row sm:items-center gap-4">
+      <span className="flex flex-col justify-center gap-4 sm:flex-row sm:items-center">
         <Link
           href={"/projects"}
           className={cn(
