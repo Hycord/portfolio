@@ -36,7 +36,7 @@ const ProjectShowcaseWrapper: FC<{
   url: string
 }> = ({ children, url }) => {
   return (
-    <GoTo url={url}>
+    <GoTo url={url} className="hover:cursor-pointer">
       <Card
         className={cn(
           "flex aspect-[3/4] flex-col transition-transform hover:scale-105"
