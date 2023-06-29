@@ -49,7 +49,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const doc = await getDocFromParams(params.slug)
   return {
-    title: doc.name,
+    title: { absolute: `User - ${doc.name}` },
     description: doc.quote,
     icons: {
       icon: doc.profileImage,
@@ -61,17 +61,14 @@ export async function generateMetadata({
       description: doc.quote,
       images: [
         {
-          url: doc.profileImage??"",
+          url: doc.profileImage ?? "",
           width: 64,
           height: 64,
           alt: "profile_image",
-        }
-      ]
-      ,type: "profile",
-
-    }
-
-    
+        },
+      ],
+      type: "profile",
+    },
   }
 }
 
