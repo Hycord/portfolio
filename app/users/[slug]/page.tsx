@@ -37,6 +37,14 @@ async function getDocFromParams(slug: string): Promise<User> {
   return doc
 }
 
+export async function generateStaticParams() {
+  return allDocuments
+    .filter((doc) => doc.type == "User")
+    .map((doc) => ({
+      slug: doc.slugAsParams,
+    }))
+}
+
 async function getProjectsForUser(user: User): Promise<Project[]> {
   return allDocuments.filter(
     (doc) =>

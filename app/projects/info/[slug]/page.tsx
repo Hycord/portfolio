@@ -1,10 +1,11 @@
 import * as React from "react"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { Project, User, allDocuments } from "contentlayer/generated"
 import { Link as LinkIcon } from "lucide-react"
-import { Metadata } from "next"
+
 import BackToProjects from "../../../../components/BackToProjects"
 import GoTo from "../../../../components/GoTo"
 import { Mdx } from "../../../../components/Mdx"
@@ -47,6 +48,13 @@ async function getUserFromProject(project: Project): Promise<User | null> {
   return doc
 }
 
+export async function generateStaticParams() {
+  return allDocuments
+    .filter((doc) => doc.type == "Project")
+    .map((doc) => ({
+      slug: doc.slugAsParams,
+    }))
+}
 // export async function generateMetadata({
 //   params,
 // }: PageProps): Promise<Metadata> {
