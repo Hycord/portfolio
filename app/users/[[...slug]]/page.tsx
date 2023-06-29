@@ -51,9 +51,11 @@ export async function generateMetadata({
   return {
     title: doc.name,
     description: doc.quote,
-    icons: [
-      new URL(doc.profileImage ?? "")
-    ],
+    icons: {
+      icon: doc.profileImage,
+      apple: doc.profileImage,
+    }
+    
   }
 }
 
