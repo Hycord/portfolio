@@ -114,8 +114,8 @@ export default async function Page({ params }: PageProps) {
             <Image
               alt="profile_image"
               src={doc.profileImage}
-              width={64}
-              height={64}
+              width={256}
+              height={256}
               className={
                 "h-32 w-32 rounded-full border-2 border-solid border-accent"
               }
