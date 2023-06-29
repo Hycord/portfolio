@@ -3,7 +3,7 @@
 import { FC } from "react"
 import { usePathname } from "next/navigation"
 
-import { allDocuments } from "../../.contentlayer/generated"
+import { Project, allDocuments } from "../../.contentlayer/generated"
 import PathNavigator from "../PathNavigator"
 
 interface ProjectPathNavigatorProps {}
@@ -21,7 +21,7 @@ const ProjectPathNavigator: FC<ProjectPathNavigatorProps> = ({}) => {
   if (!slugPathPart)
     return <PathNavigator links={[{ name: "Projects", url: "/projects" }]} />
 
-  const doc = allDocuments.find((doc) => doc.slugAsParams == slugPathPart && doc.type == "Project" && doc.public)
+  const doc = allDocuments.find((doc) => doc.slugAsParams == slugPathPart && doc.type == "Project" && doc.public) as Project
 
   if (!doc)
     return <PathNavigator links={[{ name: "Projects", url: "/projects" }]} />

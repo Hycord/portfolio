@@ -1,22 +1,31 @@
 "use client"
 
-import { FC } from "react"
-import { redirect } from "next/navigation"
+import { FC, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 import { cn } from "../lib/utils"
+import { Button, buttonVariants } from "./ui/button"
 
-interface GoToProps extends React.HTMLAttributes<HTMLDivElement> {
+interface GoToProps
+  extends React.HTMLAttributes<HTMLButtonElement | HTMLDivElement> {
   url: string
 }
 
 const GoTo: FC<GoToProps> = ({ url, ...props }) => {
+  const { push, prefetch } = useRouter()
+
+  useEffect(() => {
+    prefetch(url)
+    console.log("prefetching", url)
+  }, [prefetch, url])
+
   return (
     <div
       onClick={() => {
-        window.location.href = url
+        push(url)
       }}
       {...props}
-      className={cn(props.className)}
+      className={cn(props.className, "cursor-pointer")}
     />
   )
 }

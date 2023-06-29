@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -52,7 +52,7 @@ export function MainNav({ items }: MainNavProps) {
             (item, index) =>
               item.href && (
                 <Link
-                  key={"main_nav_"+index}
+                  key={"main_nav_" + index}
                   href={item.href}
                   className={cn(
                     "flex items-center text-lg font-medium text-primary/50 transition-all hover:scale-110 hover:text-primary/75 ",
@@ -80,7 +80,7 @@ export function MainNav({ items }: MainNavProps) {
                   variant: "ghost",
                 })}
               >
-                <Icons.gitHub className="h-5 w-5" />
+                <Icons.github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
