@@ -149,14 +149,19 @@ export default async function Page({ params }: PageProps) {
               })}
             </div>
           </div>
-          <Carousel
-            className="w-full"
-            showArrows={true}
-            cards={[
-              projects.map((project) => (
-                <CarouselCard key={project.slugAsParams}>
-                  <ProjectShowcase doc={project} noBorder className="h-full" />
-                  {/* <GoTo
+          {projects.length > 0 && (
+            <Carousel
+              className="w-full"
+              showArrows={true}
+              cards={[
+                projects.map((project) => (
+                  <CarouselCard key={project.slugAsParams}>
+                    <ProjectShowcase
+                      doc={project}
+                      noBorder
+                      className="h-full"
+                    />
+                    {/* <GoTo
                     url={project.slug}
                     className={cn(
                       "flex w-full flex-row items-center justify-end gap-2"
@@ -164,10 +169,11 @@ export default async function Page({ params }: PageProps) {
                   >
                     View Project <ExternalLink />
                   </GoTo> */}
-                </CarouselCard>
-              )),
-            ]}
-          />
+                  </CarouselCard>
+                )),
+              ]}
+            />
+          )}
         </CardFooter>
       </Card>
     </div>
