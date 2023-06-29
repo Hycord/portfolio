@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { redirect } from "next/navigation"
@@ -41,6 +42,19 @@ async function getProjectsForUser(user: User): Promise<Project[]> {
     (doc) =>
       doc.type == "Project" && doc.public && doc.user == user.slugAsParams
   ) as Project[]
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const doc = await getDocFromParams(params.slug)
+  return {
+    title: doc.name,
+    description: doc.quote,
+    icons: [
+      new URL(doc.profileImage ?? "")
+    ],
+  }
 }
 
 const SocialMedia = ({
@@ -118,7 +132,7 @@ export default async function Page({ params }: PageProps) {
             cards={[
               projects.map((project) => (
                 <CarouselCard key={project.slugAsParams}>
-                  <ProjectShowcase doc={project} noBorder className="h-full"/>
+                  <ProjectShowcase doc={project} noBorder className="h-full" />
                   {/* <GoTo
                     url={project.slug}
                     className={cn(
