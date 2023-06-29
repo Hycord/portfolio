@@ -13,33 +13,6 @@ import { ProjectInfoCard } from "../../components/projects/ProjectInfoCard"
 import ProjectPathNavigator from "../../components/projects/ProjectPathNavigator"
 import { Separator } from "../../components/ui/separator"
 
-export const metadata: Metadata = {
-  title: {
-    default: "Projects",
-    template: `%s (${siteConfig.name})`,
-  },
-  description: siteConfig.description,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  metadataBase: new URL("https://hycord.is-a.dev"),
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: {
-      url: "/favicon.ico",
-    },
-  },
-}
-
 interface RootLayoutProps {
   children: React.ReactNode
 }

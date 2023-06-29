@@ -47,33 +47,33 @@ async function getUserFromProject(project: Project): Promise<User | null> {
   return doc
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const doc = await getDocFromParams(params.slug)
-  return {
-    title: { absolute: `Project - ${doc.title}` },
-    description: doc.description,
-    icons: {
-      icon: doc.images?.[0] ?? "",
-      apple: doc.images?.[0] ?? "",
-      href: doc.images?.[0] ?? "",
-    },
-    openGraph: {
-      title: doc.title,
-      description: doc.description,
-      images: [
-        {
-          url: doc.images?.[0] ?? "",
-          width: 64,
-          height: 64,
-          alt: "project_image",
-        },
-      ],
-      type: "article",
-    },
-  }
-}
+// export async function generateMetadata({
+//   params,
+// }: PageProps): Promise<Metadata> {
+//   const doc = await getDocFromParams(params.slug)
+//   return {
+//     title: { absolute: `Project - ${doc.title}` },
+//     description: doc.description,
+//     icons: {
+//       icon: doc.images?.[0] ?? "",
+//       apple: doc.images?.[0] ?? "",
+//       href: doc.images?.[0] ?? "",
+//     },
+//     openGraph: {
+//       title: doc.title,
+//       description: doc.description,
+//       images: [
+//         {
+//           url: doc.images?.[0] ?? "",
+//           width: 64,
+//           height: 64,
+//           alt: "project_image",
+//         },
+//       ],
+//       type: "article",
+//     },
+//   }
+// }
 
 export default async function Page({ params }: PageProps) {
   if (!params.slug) redirect("/projects")
