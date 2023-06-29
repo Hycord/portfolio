@@ -4,7 +4,7 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { Project, User, allDocuments } from "contentlayer/generated"
 import { Link as LinkIcon } from "lucide-react"
-
+import { Metadata } from "next"
 import BackToProjects from "../../../../components/BackToProjects"
 import GoTo from "../../../../components/GoTo"
 import { Mdx } from "../../../../components/Mdx"
@@ -45,6 +45,34 @@ async function getUserFromProject(project: Project): Promise<User | null> {
     return null
   }
   return doc
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const doc = await getDocFromParams(params.slug)
+  return {
+    title: { absolute: `Project - ${doc.title}` },
+    description: doc.description,
+    icons: {
+      icon: doc.images?.[0] ?? "",
+      apple: doc.images?.[0] ?? "",
+      href: doc.images?.[0] ?? "",
+    },
+    openGraph: {
+      title: doc.title,
+      description: doc.description,
+      images: [
+        {
+          url: doc.images?.[0] ?? "",
+          width: 64,
+          height: 64,
+          alt: "project_image",
+        },
+      ],
+      type: "article",
+    },
+  }
 }
 
 export default async function Page({ params }: PageProps) {
