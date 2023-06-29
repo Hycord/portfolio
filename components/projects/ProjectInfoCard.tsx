@@ -1,5 +1,4 @@
-import { Github, Link, Twitter } from "lucide-react"
-
+import Link from "next/link"
 import { siteConfig } from "../../config/site"
 import { Icons } from "../icons"
 import { buttonVariants } from "../ui/button"
@@ -18,7 +17,7 @@ export function ProjectInfoCard() {
               target="_blank"
             >
               <div className={buttonVariants()}>
-                <Icons.gitHub className="h-5 w-5" />
+                <Icons.github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </a>
@@ -36,6 +35,12 @@ export function ProjectInfoCard() {
             </a>
           )}
         </span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Link href="/contact" className={buttonVariants()}>Hire Me</Link>
+        <Link href="/projects" className={buttonVariants({
+          variant: "outline"
+        })}>My Work</Link>
       </div>
     </div>
   )

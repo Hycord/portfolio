@@ -1,13 +1,8 @@
 "use client"
 
-import * as React from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useRouter } from "next/router"
-import { MenuIcon } from "lucide-react"
-import { useTheme } from "next-themes"
 
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 import { siteConfig } from "../config/site"
@@ -17,7 +12,6 @@ import { ThemeToggle } from "./theme-toggle"
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTrigger,
@@ -61,7 +55,7 @@ export function ToggleNav() {
                     variant: "ghost",
                   })}
                 >
-                  <Icons.gitHub className="h-5 w-5" />
+                  <Icons.github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </div>
               </Link>

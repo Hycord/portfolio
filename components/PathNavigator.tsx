@@ -21,7 +21,7 @@ const PathNavigator: FC<PathNavigatorProps> = ({ links }) => {
               <span className="mx-2">/</span>
             </div>
           )}
-          <div className="flex items-center justify-center px-2 py-2">
+          <div className="flex items-center justify-center p-2">
             <Link href={link.url}>{link.name}</Link>
           </div>
         </div>

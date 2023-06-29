@@ -11,9 +11,11 @@ import { Link as LinkIcon } from "lucide-react"
 import {
   DocumentTypeNames,
   DocumentTypes,
+  Project,
   allDocuments,
 } from "../.contentlayer/generated"
 import { cn, stringToHex } from "../lib/utils"
+import GoTo from "./GoTo"
 import { Badge, badgeVariants } from "./ui/badge"
 import {
   Card,
@@ -24,22 +26,27 @@ import {
   CardTitle,
 } from "./ui/card"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
-import GoTo from "./GoTo"
 
 interface ProjectShowcaseProps {
-  doc: DocumentTypes
+  doc: Project
+  noWrap?: boolean
+  className?: string
+  noBorder?: boolean
 }
-
 
 const ProjectShowcaseWrapper: FC<{
   children: React.ReactNode
   url: string
-}> = ({ children, url }) => {
+  className?: string
+  noBorder?: boolean
+}> = ({ children, url, noBorder, className }) => {
   return (
-    <GoTo url={url} className="hover:cursor-pointer">
+    <GoTo url={url}>
       <Card
+        noBorder={noBorder}
         className={cn(
-          "flex aspect-[3/4] flex-col transition-transform hover:scale-105"
+          "flex h-full flex-col transition-transform hover:scale-105 hover:cursor-pointer",
+          className
         )}
       >
         {children}
@@ -48,12 +55,17 @@ const ProjectShowcaseWrapper: FC<{
   )
 }
 
-const ProjectShowcase: FC<ProjectShowcaseProps> = ({ doc }) => {
+const ProjectShowcase: FC<ProjectShowcaseProps> = ({
+  doc,
+  noWrap = false,
+  className,
+  noBorder
+}) => {
   const date = doc?.date ? new Date(doc.date).toLocaleDateString() : null
   const images = doc?.images ?? null
 
-  return (
-    <ProjectShowcaseWrapper url={doc.slug}>
+  const Content = () => (
+    <>
       <CardHeader>
         <CardTitle>{doc.title}</CardTitle>
         <CardDescription className="flex-wrap gap-2">
@@ -72,7 +84,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({ doc }) => {
                   {t}
                 </Badge>
               ))
-            }, [doc.tags])}
+            }, [])}
             {(doc?.tags?.length ?? 0) > 2 && (
               <HoverCard>
                 <HoverCardTrigger className={cn(badgeVariants())}>
@@ -97,11 +109,13 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({ doc }) => {
               </HoverCard>
             )}
           </div>
-          <div className="flex flex-col gap-2 ">
-          </div>
+          <div className="flex flex-col gap-2 "></div>
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex grow items-center justify-center">There will be pictures<br />  here, soon...</CardContent>
+      <CardContent className="flex grow items-center justify-center">
+        There will be pictures
+        <br /> here, soon...
+      </CardContent>
       {date ? (
         <CardFooter>
           <p className={cn("text-smibold text-sm text-muted-foreground")}>
@@ -111,6 +125,14 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({ doc }) => {
       ) : (
         <></>
       )}
+    </>
+  )
+
+  return noWrap ? (
+    <Content />
+  ) : (
+    <ProjectShowcaseWrapper className={className} url={doc.slug} noBorder={noBorder}>
+      <Content />
     </ProjectShowcaseWrapper>
   )
 }
