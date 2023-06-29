@@ -37,6 +37,14 @@ async function getDocFromParams(slug: string): Promise<User> {
   return doc
 }
 
+export async function generateStaticParams() {
+  return allDocuments
+    .filter((doc) => doc.type == "User")
+    .map((doc) => ({
+      slug: doc.slugAsParams,
+    }))
+}
+
 async function getProjectsForUser(user: User): Promise<Project[]> {
   return allDocuments.filter(
     (doc) =>
@@ -106,8 +114,8 @@ export default async function Page({ params }: PageProps) {
             <Image
               alt="profile_image"
               src={doc.profileImage}
-              width={64}
-              height={64}
+              width={256}
+              height={256}
               className={
                 "h-32 w-32 rounded-full border-2 border-solid border-accent"
               }
@@ -141,14 +149,19 @@ export default async function Page({ params }: PageProps) {
               })}
             </div>
           </div>
-          <Carousel
-            className="w-full"
-            showArrows={true}
-            cards={[
-              projects.map((project) => (
-                <CarouselCard key={project.slugAsParams}>
-                  <ProjectShowcase doc={project} noBorder className="h-full" />
-                  {/* <GoTo
+          {projects.length > 0 && (
+            <Carousel
+              className="w-full"
+              showArrows={true}
+              cards={[
+                projects.map((project) => (
+                  <CarouselCard key={project.slugAsParams}>
+                    <ProjectShowcase
+                      doc={project}
+                      noBorder
+                      className="h-full"
+                    />
+                    {/* <GoTo
                     url={project.slug}
                     className={cn(
                       "flex w-full flex-row items-center justify-end gap-2"
@@ -156,10 +169,11 @@ export default async function Page({ params }: PageProps) {
                   >
                     View Project <ExternalLink />
                   </GoTo> */}
-                </CarouselCard>
-              )),
-            ]}
-          />
+                  </CarouselCard>
+                )),
+              ]}
+            />
+          )}
         </CardFooter>
       </Card>
     </div>
