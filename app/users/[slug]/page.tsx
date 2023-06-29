@@ -54,6 +54,7 @@ export async function generateMetadata({
     icons: {
       icon: doc.profileImage,
       apple: doc.profileImage,
+      href: doc.profileImage,
     },
     openGraph: {
       title: doc.name,
@@ -66,6 +67,8 @@ export async function generateMetadata({
           alt: "profile_image",
         }
       ]
+      ,type: "profile",
+
     }
 
     
