@@ -55,6 +55,6 @@ export const siteConfig: {
   ],
   socials: {
     twitter: "https://twitter.com/ignhycord",
-    github: "https://github.com/hycord",
+    github: "https://github.com/hycord/portfolio",
   },
 }
