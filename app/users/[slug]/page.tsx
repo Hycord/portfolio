@@ -48,7 +48,7 @@ export async function generateStaticParams() {
 async function getProjectsForUser(user: User): Promise<Project[]> {
   return allDocuments.filter(
     (doc) =>
-      doc.type == "Project" && doc.public == "true" && doc.user == user.slugAsParams
+      doc.type == "Project" && doc.public != "false" && doc.user == user.slugAsParams
   ) as Project[]
 }
 
@@ -152,7 +152,7 @@ export default async function Page({ params }: PageProps) {
           {projects.length > 0 && (
             <Carousel
               className="w-full"
-              showArrows={true}
+              showArrows={projects.length > 1}
               cards={[
                 projects.map((project) => (
                   <CarouselCard key={project.slugAsParams}>
