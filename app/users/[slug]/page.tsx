@@ -48,7 +48,7 @@ export async function generateStaticParams() {
 async function getProjectsForUser(user: User): Promise<Project[]> {
   return allDocuments.filter(
     (doc) =>
-      doc.type == "Project" && doc.public && doc.user == user.slugAsParams
+      doc.type == "Project" && doc.public == "true" && doc.user == user.slugAsParams
   ) as Project[]
 }
 
