@@ -86,6 +86,8 @@ export const Project = defineDocumentType(() => ({
     },
     public: {
       type: "string",
+      default: "false",
+      required: false,
     },
     title: {
       type: "string",
