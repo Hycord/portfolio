@@ -19,8 +19,37 @@ endUrl: https://discord.gg/habitat
 user: fluffans
 public: true
 ---
+# HABITAT ARCHEOLOGY: A Discord Bot Project Information Sheet
 
-# Habitat Bot
-Built for @fluffans on discord.
+## Project Overview
 
-## Project description coming soon.
+Habitat Archeology is a Discord Bot game revolved around the premise of players serving as archaeologists uncovering fossils and artifacts. It is built using Node.js and TypeScript and employs PostgreSQL for database management. The codebase is hosted on GitHub, and Docker aids in creating and managing the development-to-deployment environment.
+
+## Technology Stack
+
+- **Language:** TypeScript
+- **Platform:** Discord
+- **Backend:** Node.js
+- **Database:** PostgreSQL
+- **Version Control:** GitHub
+- **Containerization:** Docker
+- **Deployment:** Self-Hosted
+
+## Project Features & Challenges
+
+The game mechanics involved regular database updates, handling operations like storing user data (artifacts found), maintaining a global cooldown for the /dig command, managing the distribution of rare/regular items, and updating the artifact images in the bot's embeds.
+
+The element of chance was vital to the gameplay. Every /dig command had to provide random feedback from a list of possibilities, ranging from rare artifacts, regular items to geodes with their valuable contents. Ensuring fairness of this random distribution required meticulous logic and equally well-crafted database queries.
+
+One significant challenge was timezone adaptation for the /dig command, which resets daily. To ensure impartiality for players worldwide, we settled on a universal reset time of midnight EST. This addressed the issue, providing a balanced gameplay experience across time zones.
+
+During the initial launch of Habitat Archeology, the bot encountered a few crashes. These were resolved promptly, adding stability to the bot's operation and serving as a stepping stone towards a more robust system for managing large user interactions effectively.
+
+## Development Practices & Future Plans
+
+The development utilized Docker, ensuring a smooth, consistent environment transition from development to deployment phases. It's built to be self-hosted, empowering users to deploy the bot in their own environments with ease, thereby boosting reach and adaptability.
+
+The project follows sound version control practices using GitHub, ensuring code integrity and facilitating collaborative efforts. 
+
+As the game continues to evolve, future additions will continue enhancing the gameplay experience while handling scale efficiently. This ongoing development journey promises continual learning, challenges, and solutions - a testament to consistent progress in development skills and practices.
+
