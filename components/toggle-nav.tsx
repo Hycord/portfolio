@@ -26,6 +26,7 @@ export function ToggleNav() {
             variant: "outline",
           })
         )}
+        name="Toggle Navigation Menu"
       >
         {/* <MenuIcon /> */}
         <Icons.navToggle />
