@@ -13,7 +13,9 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "docker": "docker build -t nextjs-docker ."
+    "docker": "docker build -t nextjs-docker .",
+    "gen": "cd md-gen && npm start && cd ..",
+    "d": "npm run gen && npm run dev"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",

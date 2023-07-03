@@ -1,0 +1,23 @@
+{
+  "name": "md-gen",
+  "version": "1.0.0",
+  "description": "generate md",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon ./src/index.ts",
+    "init": "prisma generate"
+  },
+  "author": "hycord <hycord@hycordia.com>",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "prisma": "^4.11.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
