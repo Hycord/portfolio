@@ -39,7 +39,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "build/types/**/*.ts"
-  ],
+, "lib/generate-md.ts"  ],
   "exclude": [
     "node_modules"
   ]
