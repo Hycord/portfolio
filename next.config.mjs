@@ -4,11 +4,10 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    
   },
   images: {
-    domains: ["media.discordapp.net"],
-  }
+    domains: ["media.discordapp.net", "cdn.discordapp.com"],
+  },
 }
 
 export default nextConfig

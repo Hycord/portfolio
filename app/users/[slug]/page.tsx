@@ -48,7 +48,9 @@ export async function generateStaticParams() {
 async function getProjectsForUser(user: User): Promise<Project[]> {
   return allDocuments.filter(
     (doc) =>
-      doc.type == "Project" && doc.public != "false" && doc.user == user.slugAsParams
+      doc.type == "Project" &&
+      doc.public != "false" &&
+      doc.user == user.slugAsParams
   ) as Project[]
 }
 
@@ -90,7 +92,7 @@ const SocialMedia = ({
   url: string
 }) => {
   return (
-    <GoTo url={url} className="cursor-pointer">
+    <GoTo url={url} className="grow cursor-pointer">
       <Button
         variant={"outline"}
         className="flex w-full items-center justify-start gap-2 text-primary"
@@ -127,7 +129,22 @@ export default async function Page({ params }: PageProps) {
         <CardFooter className="flex flex-col items-start gap-4">
           <span className="flex flex-wrap items-center gap-2"></span>
           <div className="flex w-full flex-col items-center justify-center">
-            <div className="grid grid-cols-2 gap-2">
+            <div
+              className={
+                Object.keys(doc).filter((i) =>
+                  [
+                    "github",
+                    "website",
+                    "twitter",
+                    "discord",
+                    "instagram",
+                    "tiktok",
+                  ].includes(i)
+                ).length == 1
+                  ? "flex flex-col"
+                  : "grid grid-cols-2 gap-2"
+              }
+            >
               {[
                 "github",
                 "website",
