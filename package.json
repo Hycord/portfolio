@@ -39,7 +39,7 @@
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.6",
     "shiki": "^0.14.3",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6"
