@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { noBorder?: boolean }
->(({ className,noBorder=false, ...props }, ref) => (
+>(({ className, noBorder = false, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(

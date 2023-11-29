@@ -162,7 +162,7 @@ export function Mdx({ code }: MdxProps) {
 
   return (
     <div className="mdx">
-        {/* @ts-ignore */}
+      {/* @ts-ignore */}
       <Component components={components} />
     </div>
   )

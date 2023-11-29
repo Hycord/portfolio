@@ -1,8 +1,8 @@
 import Link from "next/link"
 
+import { ProjectInfoCard } from "../components/projects/ProjectInfoCard"
 import { buttonVariants } from "../components/ui/button"
 import { cn } from "../lib/utils"
-import { ProjectInfoCard } from "../components/projects/ProjectInfoCard"
 
 function Page() {
   return (

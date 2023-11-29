@@ -1,14 +1,14 @@
 "use client"
 
 import { FC } from "react"
+import { useRouter } from "next/navigation"
+
 import { Button } from "./ui/button"
-import { useRouter } from 'next/navigation'
 
 interface ContactMeProps {}
 
 const ContactMe: FC<ContactMeProps> = ({}) => {
-
-    const router = useRouter();
+  const router = useRouter()
   return (
     <Button onClick={() => router.push("mailto:hello@masen.dev")}>
       Contact Me

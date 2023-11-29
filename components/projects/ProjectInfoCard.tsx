@@ -1,9 +1,10 @@
 import Link from "next/link"
+import { Router } from "next/router"
+
 import { siteConfig } from "../../config/site"
+import ContactMe from "../ContactMe"
 import { Icons } from "../icons"
 import { Button, buttonVariants } from "../ui/button"
-import { Router } from "next/router"
-import ContactMe from "../ContactMe";
 
 export function ProjectInfoCard() {
   return (
@@ -40,9 +41,14 @@ export function ProjectInfoCard() {
       </div>
       <div className="flex flex-wrap gap-2">
         <ContactMe />
-        <Link href="/projects" className={buttonVariants({
-          variant: "outline"
-        })}>My Work</Link>
+        <Link
+          href="/projects"
+          className={buttonVariants({
+            variant: "outline",
+          })}
+        >
+          My Work
+        </Link>
       </div>
     </div>
   )

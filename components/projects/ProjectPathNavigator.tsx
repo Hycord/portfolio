@@ -21,15 +21,22 @@ const ProjectPathNavigator: FC<ProjectPathNavigatorProps> = ({}) => {
   if (!slugPathPart)
     return <PathNavigator links={[{ name: "Projects", url: "/projects" }]} />
 
-  const doc = allDocuments.find((doc) => doc.slugAsParams == slugPathPart && doc.type == "Project" && doc.public) as Project
+  const doc = allDocuments.find(
+    (doc) =>
+      doc.slugAsParams == slugPathPart && doc.type == "Project" && doc.public
+  ) as Project
 
   if (!doc)
     return <PathNavigator links={[{ name: "Projects", url: "/projects" }]} />
 
-    return <PathNavigator links={[
+  return (
+    <PathNavigator
+      links={[
         { name: "Projects", url: "/projects" },
         { name: doc.title, url: "/projects/info/" + doc.slugAsParams },
-      ]} />
+      ]}
+    />
+  )
 }
 
 export default ProjectPathNavigator

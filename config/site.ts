@@ -1,4 +1,3 @@
-
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig: {
@@ -56,6 +55,6 @@ export const siteConfig: {
   socials: {
     twitter: "https://twitter.com/ignhycord",
     github: "https://github.com/hycord/portfolio",
-    discord: "https://discord.gg/9f7WbbvPP7"
+    discord: "https://discord.gg/9f7WbbvPP7",
   },
 }

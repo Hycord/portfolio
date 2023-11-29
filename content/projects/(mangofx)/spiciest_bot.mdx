@@ -1,35 +1,38 @@
 ---
 title: Spiciest Bot
-description: Custom Hypixel Guild bot for the Spiciest hypixel guild. 
-images: 
- - /screenshots/spiciest/IMG_1228.jpeg
- - /screenshots/spiciest/IMG_1229.jpeg
- - /screenshots/spiciest/IMG_1230.jpeg
- - /screenshots/spiciest/IMG_1231.jpeg
- - /screenshots/spiciest/IMG_1232.jpeg
+description: Custom Hypixel Guild bot for the Spiciest hypixel guild.
+images:
+  - /screenshots/spiciest/IMG_1228.jpeg
+  - /screenshots/spiciest/IMG_1229.jpeg
+  - /screenshots/spiciest/IMG_1230.jpeg
+  - /screenshots/spiciest/IMG_1231.jpeg
+  - /screenshots/spiciest/IMG_1232.jpeg
 date: 2023-03-26
 tags:
- - discord
- - bot
- - mysql
- - nodejs
- - github
- - docker
- - selfhosted
+  - discord
+  - bot
+  - mysql
+  - nodejs
+  - github
+  - docker
+  - selfhosted
 languages:
- - typscript
+  - typscript
 github: https://github.com/hycord/spiciest
 publicGithub: false
 endUrl: https://discord.gg/hmtP6NjRQC
 user: mangofx
 public: true
 ---
+
 # Spiciest Bot: A Custom Hypixel Guild Discord Bot
 
 ## Project Overview
+
 Spiciest Bot is a custom Discord bot designed for the Spiciest Hypixel Guild. It's built on a tech stack comprising Node.js, TypeScript, MySQL, and Docker. Although its codebase isn't public, the bot operates in an open-source Discord server.
 
 ## Tech Stack
+
 - **Language:** TypeScript
 - **Platform:** Discord
 - **Database:** MySQL (Prisma)
@@ -41,21 +44,27 @@ Spiciest Bot is a custom Discord bot designed for the Spiciest Hypixel Guild. It
 ## Key Features & Development Challenges
 
 ### Command Handling
+
 Throughout the development, different versions improved the reliability and efficiency of command handling. Commands are dynamically loaded from a list, ensuring flexibility in functionality. Error handling has been meticulously implemented to avoid crashes, making the bot more robust.
 
 ### User Statistics
+
 A challenging feature was facilitating user statistics collection for debugging and improving the bot. This includes Minecraft and Discord message counts, and Discord command usage count. The bot also deals with the privacy aspect, allowing users to opt out of the statistics collection.
 
 ### Hypixel Linking
+
 The bot includes a Hypixel linking feature that underwent a rigorous beta testing phase to ensure its robustness. This feature has seen several iterations to improve its efficiency and user experience.
 
 ### User Badges & Leveling
+
 Users can earn badges and points for their activity, encouraging engagement. Balancing the leveling mechanism represented a significant challenge, resolved via a custom formula similar to that of the popular Mee6 bot.
 
 ### Chat Relay
+
 One innovative feature is the ability for users to interact with Minecraft players directly from Discord. This included the creation of a custom socket server and a custom Minecraft packet parser. Although this component presented significant challenges, it added a unique interactive element to the bot's feature set.
 
 ## Development Practices & Future Updates
+
 The project follows a disciplined version control practice using GitHub. Its Docker-centered environment eases the transition from development to deployment, making the bot self-hostable.
 
 Future updates should continually refine existing features, improve performance, and add more interactive elements to the bot. As the bot's feature set expands, so too does the opportunity for learning and tackling new development challenges.

@@ -4,7 +4,6 @@ import axios from "axios"
 import ipware from "ipware"
 import z, { ZodError } from "zod"
 
-
 const schema = z.object({
   firstName: z.string().min(1),
   email: z.string().email().min(1),

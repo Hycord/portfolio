@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useMemo, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import {
   Document,
@@ -25,9 +26,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
 import { Carousel, CarouselCard } from "./ui/carousel"
-import Image from "next/image"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
 
 interface ProjectShowcaseProps {
   doc: Project
@@ -61,7 +61,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
   doc,
   noWrap = false,
   className,
-  noBorder
+  noBorder,
 }) => {
   const date = doc?.date ? new Date(doc.date).toLocaleDateString() : null
   const images = doc?.images ?? null
@@ -81,7 +81,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
                     backgroundColor: stringToHex(t),
                   }}
                   className="rounded-full px-2 py-1 text-black"
-                // variant={"outline"}
+                  // variant={"outline"}
                 >
                   {t}
                 </Badge>
@@ -102,7 +102,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
                         backgroundColor: stringToHex(t),
                       }}
                       className="rounded-full px-2 py-1 text-black"
-                    // variant={"outline"}
+                      // variant={"outline"}
                     >
                       {t}
                     </Badge>
@@ -122,15 +122,13 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
             cards={[
               images.map((project) => (
                 <CarouselCard key={project} className="z-10">
-                  <div className="aspect-square overflow-hidden flex items-center justify-center">
+                  <div className="flex aspect-square items-center justify-center overflow-hidden">
                     <Image
-
-
                       alt="Example Image"
                       src={project}
                       width={500}
                       height={500}
-                    // className="h-full"
+                      // className="h-full"
                     />
                   </div>
                   {/* <GoTo
@@ -145,7 +143,9 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
               )),
             ]}
           />
-        ) : <>This project does not have any images.</>}
+        ) : (
+          <>This project does not have any images.</>
+        )}
       </CardContent>
       {date ? (
         <CardFooter>
@@ -162,7 +162,11 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
   return noWrap ? (
     <Content />
   ) : (
-    <ProjectShowcaseWrapper className={className} url={doc.slug} noBorder={noBorder}>
+    <ProjectShowcaseWrapper
+      className={className}
+      url={doc.slug}
+      noBorder={noBorder}
+    >
       <Content />
     </ProjectShowcaseWrapper>
   )

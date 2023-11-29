@@ -4,8 +4,8 @@ import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 
-import { ToggleNav } from "./toggle-nav"
 import { ThemeToggle } from "./theme-toggle"
+import { ToggleNav } from "./toggle-nav"
 import { buttonVariants } from "./ui/button"
 
 export function SiteHeader() {
@@ -19,10 +19,15 @@ export function SiteHeader() {
   return (
     <header className="z-40 h-16 w-full border-b bg-background">
       <div className="container flex h-16 items-center justify-between space-x-4">
-        <Link href="/" className="flex items-center space-x-2 transition-all hover:scale-110">
+        <Link
+          href="/"
+          className="flex items-center space-x-2 transition-all hover:scale-110"
+        >
           {/* <Icons.logo className="h-6 w-6" /> */}
-          <span className="inline-block whitespace-nowrap font-bold">{siteConfig.name}</span>
-        </Link> 
+          <span className="inline-block whitespace-nowrap font-bold">
+            {siteConfig.name}
+          </span>
+        </Link>
 
         <MainNav items={siteConfig.mainNav} />
         <div className="flex w-full items-center justify-end md:hidden">

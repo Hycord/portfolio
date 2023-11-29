@@ -6,6 +6,8 @@ import { redirect } from "next/navigation"
 import { Project, User, allDocuments } from "contentlayer/generated"
 import { Link as LinkIcon } from "lucide-react"
 
+import { Carousel, CarouselCard } from "@/components/ui/carousel"
+
 import BackToProjects from "../../../../components/BackToProjects"
 import GoTo from "../../../../components/GoTo"
 import { Mdx } from "../../../../components/Mdx"
@@ -21,7 +23,6 @@ import {
   CardTitle,
 } from "../../../../components/ui/card"
 import { stringToHex } from "../../../../lib/utils"
-import { Carousel, CarouselCard } from "@/components/ui/carousel"
 
 interface PageProps {
   params: {
@@ -90,7 +91,7 @@ export default async function Page({ params }: PageProps) {
   const user = await getUserFromProject(doc)
 
   const date = doc?.date ? new Date(doc.date) : null
-  const images = doc.images ? doc.images.length > 0 ? doc.images : [] : []
+  const images = doc.images ? (doc.images.length > 0 ? doc.images : []) : []
 
   return (
     <div className="flex h-full w-full flex-col items-center overflow-scroll md:flex-row md:items-start md:justify-center">
@@ -125,15 +126,13 @@ export default async function Page({ params }: PageProps) {
             cards={[
               images.map((project) => (
                 <CarouselCard key={project}>
-                  <div className="aspect-square overflow-hidden flex items-center justify-center">
+                  <div className="flex aspect-square items-center justify-center overflow-hidden">
                     <Image
-
-
                       alt="Example Image"
                       src={project}
                       width={500}
                       height={500}
-                    // className="h-full"
+                      // className="h-full"
                     />
                   </div>
                   {/* <GoTo
@@ -158,7 +157,7 @@ export default async function Page({ params }: PageProps) {
                   backgroundColor: stringToHex(t),
                 }}
                 className="text-black"
-              // variant={"outline"}
+                // variant={"outline"}
               >
                 {t}
               </Badge>
