@@ -106,9 +106,11 @@ function Carousel({
           "tansform absolute left-0 top-[50%] z-10 flex translate-y-[-50%] flex-row items-center justify-center p-2",
           showArrows ? "visible" : "hidden",
           prevBtnEnabled ? "cursor-pointer text-primary" : "text-primary/50",
+          "bg-white/60 rounded-full hover:scale-105 transition-transform",
+
         )}
       >
-        <ChevronLeft />
+        <ChevronLeft className="text-black"/>
       </div>
       <div ref={emblaRef} className="h-full w-full overflow-hidden">
         <div className="flex h-full gap-2">{cards}</div>
@@ -119,6 +121,8 @@ function Carousel({
           "tansform absolute right-0 top-[50%] z-10 flex translate-y-[-50%] flex-row items-center justify-center p-2",
           showArrows ? "visible" : "hidden",
           nextBtnEnabled ? "cursor-pointer text-primary" : "text-primary/50",
+          "bg-white/60 rounded-full hover:scale-105 transition-transform",
+
           
         )}
       >

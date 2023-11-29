@@ -21,6 +21,7 @@ import {
   CardTitle,
 } from "../../../../components/ui/card"
 import { stringToHex } from "../../../../lib/utils"
+import { Carousel, CarouselCard } from "@/components/ui/carousel"
 
 interface PageProps {
   params: {
@@ -89,6 +90,7 @@ export default async function Page({ params }: PageProps) {
   const user = await getUserFromProject(doc)
 
   const date = doc?.date ? new Date(doc.date) : null
+  const images = doc.images ? doc.images.length > 0 ? doc.images : [] : []
 
   return (
     <div className="flex h-full w-full flex-col items-center overflow-scroll md:flex-row md:items-start md:justify-center">
@@ -117,6 +119,35 @@ export default async function Page({ params }: PageProps) {
               {user.name}
             </GoTo>
           )}
+          <Carousel
+            className="w-full"
+            showArrows={images.length > 1}
+            cards={[
+              images.map((project) => (
+                <CarouselCard key={project}>
+                  <div className="aspect-square overflow-hidden flex items-center justify-center">
+                    <Image
+
+
+                      alt="Example Image"
+                      src={project}
+                      width={500}
+                      height={500}
+                    // className="h-full"
+                    />
+                  </div>
+                  {/* <GoTo
+                url={project.slug}
+                className={cn(
+                  "flex w-full flex-row items-center justify-end gap-2"
+                )}
+              >
+                View Project <ExternalLink />
+              </GoTo> */}
+                </CarouselCard>
+              )),
+            ]}
+          />
         </CardContent>
         <CardFooter className="flex flex-col items-start gap-4">
           <span className="flex flex-wrap items-center gap-2">
@@ -127,7 +158,7 @@ export default async function Page({ params }: PageProps) {
                   backgroundColor: stringToHex(t),
                 }}
                 className="text-black"
-                // variant={"outline"}
+              // variant={"outline"}
               >
                 {t}
               </Badge>

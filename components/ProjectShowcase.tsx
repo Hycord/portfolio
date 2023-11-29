@@ -26,6 +26,8 @@ import {
   CardTitle,
 } from "./ui/card"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card"
+import { Carousel, CarouselCard } from "./ui/carousel"
+import Image from "next/image"
 
 interface ProjectShowcaseProps {
   doc: Project
@@ -79,7 +81,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
                     backgroundColor: stringToHex(t),
                   }}
                   className="rounded-full px-2 py-1 text-black"
-                  // variant={"outline"}
+                // variant={"outline"}
                 >
                   {t}
                 </Badge>
@@ -100,7 +102,7 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
                         backgroundColor: stringToHex(t),
                       }}
                       className="rounded-full px-2 py-1 text-black"
-                      // variant={"outline"}
+                    // variant={"outline"}
                     >
                       {t}
                     </Badge>
@@ -113,8 +115,37 @@ const ProjectShowcase: FC<ProjectShowcaseProps> = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="flex grow items-center justify-center">
-        There will be pictures
-        <br /> here, soon...
+        {images ? (
+          <Carousel
+            className="w-full"
+            showArrows={false}
+            cards={[
+              images.map((project) => (
+                <CarouselCard key={project} className="z-10">
+                  <div className="aspect-square overflow-hidden flex items-center justify-center">
+                    <Image
+
+
+                      alt="Example Image"
+                      src={project}
+                      width={500}
+                      height={500}
+                    // className="h-full"
+                    />
+                  </div>
+                  {/* <GoTo
+                url={project.slug}
+                className={cn(
+                  "flex w-full flex-row items-center justify-end gap-2"
+                )}
+              >
+                View Project <ExternalLink />
+              </GoTo> */}
+                </CarouselCard>
+              )),
+            ]}
+          />
+        ) : <>This project does not have any images.</>}
       </CardContent>
       {date ? (
         <CardFooter>
