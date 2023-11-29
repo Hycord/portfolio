@@ -139,7 +139,7 @@ let data: Data = {
     // Add the required fields from your example
     title: "testTitle",
     description: "testDescription",
-    images: ["image1", "image2"],
+    // images: ["image1", "image2"],
     date: new Date(),
     tags: ["tag1", "tag2"],
     languages: ["JavaScript", "TypeScript"],
