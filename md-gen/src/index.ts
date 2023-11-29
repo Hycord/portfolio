@@ -5,7 +5,7 @@ type List = string[]
 
 interface Fields {
   user?: string
-  public?: boolean
+  public?: string
   title: string
   description?: string
   images?: List
@@ -55,7 +55,7 @@ const generateFrontMatter = (fields: Fields) => {
       continue
     }
 
-    if (key === "public" && value) {
+    if (key === "public" && value != "false") {
       isPublic = true
       continue
     }
@@ -147,7 +147,7 @@ let data: Data = {
     publicGithub: true,
     endUrl: "https://endurl.com",
     user: "test",
-    public: false,
+    public: "false",
   },
 }
 
